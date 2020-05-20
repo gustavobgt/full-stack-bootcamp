@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Cores RGB</title>
+  </head>
+  <body>
+    <h1>Seletor de Cores</h1>
+    <div id="container">
+      <div id="top-area">
+        <div class="color-box">
+          <label for="red" id="red-label">(R) Vermelho:</label
+          ><span id="red-span"></span><br />
+          <label for="green" id="green-label">(G) Verde:</label
+          ><span id="green-span"></span><br />
+          <label for="blue" id="blue-label">(B) Azul:</label
+          ><span id="blue-span"></span><br />
+        </div>
+        <div class="color-box">
+          <input type="range" id="red-range" min="0" max="255" />
+          <input type="range" id="green-range" min="0" max="255" />
+          <input type="range" id="blue-range" min="0" max="255" />
+        </div>
+        <div class="color-box">
+          <input type="text" id="red-text" disabled placeholder="0" />
+          <input type="text" id="green-text" disabled placeholder="0" />
+          <input type="text" id="blue-text" disabled placeholder="0" />
+        </div>
+      </div>
+      <div id="colored-area"></div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

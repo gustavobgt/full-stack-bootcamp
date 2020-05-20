@@ -1,0 +1,38 @@
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2em;
+  margin: 20px 10px;
+}
+
+label {
+  margin: 20px 10px;
+  font-weight: bold;
+}
+
+input {
+  border: 1px solid gray;
+  width: 180px;
+  height: 20px;
+}
+
+h2 {
+  margin: 20px 10px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.deleteButton {
+  color: white;
+  font-weight: bold;
+  background-color: darkred;
+  margin-right: 10px;
+  border-radius: 50%;
+}
