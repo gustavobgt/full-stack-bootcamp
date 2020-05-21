@@ -4,7 +4,22 @@ var redValue = 0;
 var greenValue = 0;
 var blueValue = 0;
 
+// currentIndex = null;
+
 function start() {
+  /*function changeColor(event) {
+
+    if (index === 0) {
+      // red
+    } else if (index === 1) {
+      // green
+    } else {
+      // blue
+    }
+    
+    divColor.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+  }*/
+
   function changeRed(event) {
     redValue = parseInt(event.target.value);
     divColor.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
@@ -43,3 +58,9 @@ function start() {
   greenRange.addEventListener('change', changeGreen);
   blueRange.addEventListener('change', changeBlue);
 }
+
+// Criar um index para cada um dos elementos
+/*
+function activateInput() {
+  for (var i = 0; i < 3; i++) {}
+}*/
