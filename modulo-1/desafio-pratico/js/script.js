@@ -1,16 +1,14 @@
-window.addEventListener('load', start);
+let globalNames = ['Um', 'Dois', 'Três', 'Quatro'];
+let inputName = null;
+let isEditing = false;
+let currentIndex = null;
 
-var globalNames = ['Um', 'Dois', 'Três', 'Quatro'];
-var inputName = null;
-var isEditing = false;
-var currentIndex = null;
-
-function start() {
+window.addEventListener('load', () => {
   inputName = document.querySelector('#inputName');
   preventFormSubmit();
   activateInput();
   render();
-}
+});
 
 function preventFormSubmit() {
   function handleFormSubmit(event) {
@@ -23,7 +21,8 @@ function preventFormSubmit() {
 
 function activateInput() {
   function insertName(newName) {
-    globalNames.push(newName);
+    //globalNames.push(newName);
+    globalNames = [...globalNames, newName];
   }
 
   function updateName(newName) {
@@ -54,7 +53,17 @@ function activateInput() {
 function render() {
   function createDeleteButton(index) {
     function deleteName() {
-      globalNames.splice(index, 1);
+      //globalNames.splice(index, 1); é um método mutável
+
+      /* O filter é imutável
+      globalNames = globalNames.filter((name, i) => {
+        if (i === index) {
+          return false;
+        }
+        return true;
+      });*/
+
+      globalNames = globalNames.filter((_, i) => i !== index);
       render();
     }
     var button = document.createElement('button');
@@ -106,7 +115,13 @@ function render() {
   clearInput();
 }
 
+/*
 function clearInput() {
   inputName.value = '';
   inputName.focus();
-}
+}*/
+
+const clearInput = () => {
+  inputName.value = '';
+  inputName.focus();
+};
