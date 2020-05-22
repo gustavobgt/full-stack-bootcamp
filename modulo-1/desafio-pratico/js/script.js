@@ -15,7 +15,7 @@ function preventFormSubmit() {
     event.preventDefault();
   }
 
-  var form = document.querySelector('form');
+  let form = document.querySelector('form');
   form.addEventListener('submit', handleFormSubmit);
 }
 
@@ -30,7 +30,7 @@ function activateInput() {
   }
 
   function handleTyping(event) {
-    var hasText = !!event.target.value && event.target.value.trim() !== '';
+    let hasText = !!event.target.value && event.target.value.trim() !== '';
     if (!hasText) {
       clearInput();
       return;
@@ -57,16 +57,17 @@ function render() {
 
       /* O filter é imutável
       globalNames = globalNames.filter((name, i) => {
-        if (i === index) {
-          return false;
+        if (i === index) { 
+          return false; // Não adiciona o nome no vetor (Nome que foi excluída)
         }
-        return true;
+        return true; // Adiciona o Nome no vetor
       });*/
 
+      // Só está usando o index e não está usando o name logo usa-se _
       globalNames = globalNames.filter((_, i) => i !== index);
       render();
     }
-    var button = document.createElement('button');
+    let button = document.createElement('button');
     button.classList.add('deleteButton');
     button.textContent = 'x';
 
@@ -83,7 +84,7 @@ function render() {
       currentIndex = index;
     }
 
-    var span = document.createElement('span'); // Para separar o button do li
+    let span = document.createElement('span'); // Para separar o button do li
     span.classList.add('clickable');
     span.textContent = name;
     span.addEventListener('click', editItem);
@@ -91,19 +92,19 @@ function render() {
     return span;
   }
 
-  var divNames = document.querySelector('#names');
+  let divNames = document.querySelector('#names');
   divNames.innerHTML = ''; // zera tudo que está dentro da divNames
 
   //Criar ul
   //Fazer n li's, conforme tamanho de globalNames
-  var ul = document.createElement('ul'); // Cria uma ul para receber os elementos li
+  let ul = document.createElement('ul'); // Cria uma ul para receber os elementos li
 
-  for (var i = 0; i < globalNames.length; i++) {
-    var currentName = globalNames[i];
+  for (let i = 0; i < globalNames.length; i++) {
+    let currentName = globalNames[i];
 
-    var li = document.createElement('li');
-    var button = createDeleteButton(i);
-    var span = createSpan(currentName, i);
+    let li = document.createElement('li');
+    let button = createDeleteButton(i);
+    let span = createSpan(currentName, i);
 
     li.appendChild(button);
     li.appendChild(span);
